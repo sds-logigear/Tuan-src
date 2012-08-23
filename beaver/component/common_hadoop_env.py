@@ -5,24 +5,22 @@ from beaver import util
 
 class CommonHadoopEnv:
     
-    @classmethod
-    def getCluster(cls):
-        return Config.get('hadoop', 'CLUSTER') 
+	@classmethod
+    def getKerberosTicketsSuffix(cls):
+        return ".kerberos.ticket"
     
     @classmethod
-    def getVersion(cls):
-        return Config.get('hadoop', 'VERSION') 
+    def getNNSafemodeTimeout(cls):
+        return 300
 
     @classmethod
-    def getIsSecure(cls):
-        _security_prop_value = Hadoop.getConfigValue("hadoop.security.authentication", "kerberos") 
-        isSecure = True
-        if not _security_prop_value  == "kerberos":
-            isSecure =False
-        
-        return isSecure
+    def getHadoopConfDir(cls):
+        return Config.get('hadoop', 'HADOOP_CONF')
     
-    @classmethod
+	
+	12345
+	
+   @classmethod
     def getArtifactsDir(cls):
         return Config.getEnv('ARTIFACTS_DIR')
     
@@ -38,17 +36,6 @@ class CommonHadoopEnv:
     def getKerberosTicketsDir(cls):
         return os.path.join(CommonHadoopEnv.getArtifactsDir(), CommonHadoopEnv.getCluster()+".kerberosTickets."+str(int(time.time())))
 
-    @classmethod
-    def getKerberosTicketsSuffix(cls):
-        return ".kerberos.ticket"
-    
-    @classmethod
-    def getNNSafemodeTimeout(cls):
-        return 300
-
-    @classmethod
-    def getHadoopConfDir(cls):
-        return Config.get('hadoop', 'HADOOP_CONF')
     
     @classmethod
     def getHDFSUser(cls):
