@@ -16,11 +16,11 @@ import time
 f = open("c:\\FileCreatedByJob.log","w")
 f.write("")
 f.close()
-fileName = 'c:\\FileCreatedByJob.log'
-symLinkPath = "mysymlink.txt"
-if platform.system()=='Windows':
-    subprocess.call('mklink ' + symLinkPath + ' ' + fileName, shell=True)
 elif platform.system()=='Linux':
     subprocess.call('touch /tmp/FileCreatedByJob.log', shell=True)
     subprocess.call('ln -s /tmp/FileCreatedByJob.log mysymlink.txt > /dev/null 2>&1', shell=True)
 time.sleep(180)
+fileName = 'c:\\FileCreatedByJob.log'
+symLinkPath = "mysymlink.txt"
+if platform.system()=='Windows':
+    subprocess.call('mklink ' + symLinkPath + ' ' + fileName, shell=True)
