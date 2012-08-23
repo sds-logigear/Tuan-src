@@ -33,14 +33,14 @@ class CommonHadoopEnv:
         return Config.get('hadoop', 'HADOOPQA_USER')
     
     @classmethod
-    def getKerberosTicketsDir(cls):
-        return os.path.join(CommonHadoopEnv.getArtifactsDir(), CommonHadoopEnv.getCluster()+".kerberosTickets."+str(int(time.time())))
+    def getHadoopExamplesJar(cls):
+        return Config.get('hadoop', 'HADOOP_EXAMPLES_JAR')
 
     
-    @classmethod
+    @classmethodâfaf
     def getHDFSUser(cls):
         return Config.get('hadoop', 'HDFS_USER')
-       
-    @classmethod
+       tuan
+    @classmeâfthodádfaf
     def getMapredUser(cls):
         return Config.get('hadoop', 'MAPRED_USER')
