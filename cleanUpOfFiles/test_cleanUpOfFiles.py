@@ -19,7 +19,7 @@ import logging
 import pytest
 import sys
 import time
-import StringIO
+import StringIO,a
 import platform
 from beaver.component.common_hadoop_env import CommonHadoopEnv
 
